@@ -50,16 +50,61 @@ soma(0.1, 0.2)
 
 // 6)
 function montante1(capitalInicial, taxaJuros, tempoAplicacao) {
-    let jurosS = (capitalInicial * taxaJuros / 100) * tempoAplicacao + capitalInicial
+    let jurosS = (capitalInicial * taxaJuros) * tempoAplicacao + capitalInicial
     console.log(`O montante do Juros Simples é R$ ${jurosS}.`)
 }
 
 function montante2(capitalInicial, taxaJuros, tempoAplicacao) {
-    let valorjurosC = capitalInicial * taxaJuros
-    let jurosC = valorjurosC * (taxaJuros / 100) + valorjurosC 
-
+    let jurosC = capitalInicial * (1 + taxaJuros) ** tempoAplicacao
+    
     console.log(`O montante do Juros Composto é R$ ${jurosC}.`)
 }
 
-montante1(4000, 4, 10)
-montante2(150, 1, 6)
+montante1(100, 10/100, 2)
+montante2(100, 10/100, 2)
+
+// 7)
+function equacao(a, b, c) {
+    let resultados = []
+    let delta = (b ** 2) - (4 * a * c)
+    let x1 = (- b + Math.sqrt(delta)) / 2 * a
+    let x2 = (- b - Math.sqrt(delta)) / 2 * a
+        
+    if (delta < 0) {
+        console.log('Delta é Negativo')
+    } else {
+        resultados.push(x1)
+        resultados.push(x2)
+        console.log(`O valor de X' é ${x1.toFixed(2)} e o valor de X" é ${x2.toFixed(2)}.`)
+    }
+     
+}
+
+equacao(1, 3, 2)
+equacao(3, 1, 2)
+
+//8)
+let stringPontuacao = "30, 40, 20, 4, 51, 25, 42, 38, 56, 0"
+
+function avaliarPontuacao(stringPontuacao) {
+    let pontuacoes = stringPontuacao.split(", ")
+    let qtdQuebraDeRecords = 0
+    let piorJogo = 1
+    let maiorPontuacao = pontuacoes[0]
+    let menorpontuacao = pontuacoes[0]
+
+    for(let i = 1; i < pontuacoes.length; i++) {
+        if (pontuacoes[i] > maiorPontuacao) {
+            maiorPontuacao = pontuacoes[i]
+            qtdQuebraDeRecords++
+        } else if (pontuacoes[i] < menorpontuacao) {
+            menorpontuacao = pontuacoes[i]
+            piorJogo = i + 1
+        }
+    }
+
+    return [qtdQuebraDeRecords, piorJogo]
+
+}
+
+console.log(avaliarPontuacao(stringPontuacao))
