@@ -290,3 +290,211 @@ function calculadora(n1, s, n2) {
     }
 }
 calculadora(3, '+', 3)
+
+/*17) Um funcionário irá receber um aumento de acordo com o seu plano de trabalho, de acordo com a tabela abaixo:
+
+Plano | Aumento
+A     | 10%
+B     | 15%
+C     | 20%
+
+Faça uma função que leia o plano de trabalho e o salário atual de um funcionário e calcula e imprime o seu novo salário. Use a Estrutura Switch e faça um caso default que indique que o plano é inválido*/
+
+function aumento(plano) {
+    let salario = 1000.00
+   
+    switch(plano) {
+        case plano = 'A':
+                        let a = salario * (10 / 100) + salario
+            console.log(`No Plano A, o seu sálario passa de R$${salario.toFixed(2).replace(".", ",")} para R$${a.toFixed(2).replace(".", ",")}.`)
+            break
+        case plano = 'B':
+            let b = salario * (15 / 100) + salario
+            console.log(`No Plano B, o seu sálario passa de R$${salario.toFixed(2).replace(".", ",")} para R$${b.toFixed(2).replace(".", ",")}.`)
+            break
+        case plano = 'C':
+            let c = salario * (20 / 100) + salario
+            console.log(`No Plano C, o seu sálario passa de R$${salario.toFixed(2).replace(".", ",")} para R$${c.toFixed(2).replace(".", ",")}.`)
+            break
+            default:
+                console.log('Plano Inválido!')
+    }
+}
+
+aumento('A')
+
+//18) Faça um programa que leia um númeoro emtre 0 e 10 e escreva este número por extenso. Use o comando switch. Crie um case default que escreva 'Número fora do intervalo.'
+
+function intervalo(numero) {
+    switch(numero) {
+        case numero = 0:
+            console.log('Zero')
+            break
+        case numero = 1:
+            console.log('Um')
+            break
+        case numero = 2:
+            console.log('Dois')
+            break
+        case numero = 3:
+            console.log('Três')
+            break
+        case numero = 4:
+            console.log('Quatro')
+            break
+        case numero = 5:
+            console.log('Cinco')
+            break
+        case numero = 6:
+            console.log('Seis')
+            break
+        case numero = 7:
+            console.log('Sete')
+            break
+        case numero = 8:
+            console.log('Oito')
+            break
+        case numero = 9:
+            console.log('Nove')
+            break
+        case numero = 10:
+            console.log('Dez')
+            break
+            default:
+                console.log('Número Inválido!')
+    }
+}
+
+intervalo(11)
+
+/*19) o cardáio de uma lanchonete é o seguinte:
+
+Código | Descrição do Produto | Preço
+100    | Cachorro Quente      | R$ 3,00
+200    | Hambúrguer Simples   | R$ 4,00
+300    | Cheeseburguer        | R$ 5,50
+400    | Bauru                | R$ 7,50
+500    | Refrigerante         | R$ 3,50
+600    | Suco                 | R$ 2,80
+
+Implemente uma função que receba como parâmetro o código do item pedido, a quantidade e calcule o valor a ser pago por aquele lanche. Considere que a cada execução somente será calculado um item. Use o comando switch. Crie um caso default para produto não existente*/
+
+function pedido(codigo, quant) {
+    switch(codigo) {
+        case codigo = 100:
+            let valor1 = 3.00
+            let total1 = quant * valor1
+            console.log(`${quant}x - Cachorro Quente - Total R$ ${total1.toFixed(2).replace(".", ",")}`)
+            break
+        case codigo = 200:
+            let valor2 = 4.00
+            let total2 = quant * valor2
+            console.log(`${quant}x - Hambúrguer Simples - Total R$ ${total2.toFixed(2).replace(".", ",")}`)
+            break
+        case codigo = 300:
+            let valor3 = 5.50
+            let total3 = quant * valor3
+            console.log(`${quant}x - Cheeseburguer - Total R$ ${total3.toFixed(2).replace(".", ",")}`)
+            break
+        case codigo = 400:
+            let valor4 = 7.50
+            let total4 = quant * valor4
+            console.log(`${quant}x - Bauru - Total R$ ${total4.toFixed(2).replace(".", ",")}`)
+            break
+        case codigo = 500:
+            let valor5 = 3.50
+            let total5 = quant * valor5
+            console.log(`${quant}x - Refrigerante - Total R$ ${total5.toFixed(2).replace(".", ",")}`)
+            break
+        case codigo = 600:
+            let valor6 = 2.80
+            let total6 = quant * valor6
+            console.log(`${quant}x - Suco - Total R$ ${total6.toFixed(2).replace(".", ",")}`)
+            break
+            default:
+                console.log('Código Inválido!')
+    }
+}
+
+pedido(600, 4)
+
+//20) Crie um programa para informar quais e quantas notas são necessárias para entregar o mínimo de cédulas para um determinado valor informado pelo usuário considerando notas de R$ 100, R$ 50, R$ 10, R$ 5 e R$ 1. Seu programa deve mostrar apenas as notas utilizadas. Por exemplo, ao solicitar R$ 18, o programa deve informar apenas a seguinte informação (note que não foram exibidas informações sobre as demais cédulas): 1 nota(s) de R$ 10. 1 nota(s) de R$ 5. 3 nota(s) de R$ 1.
+
+function sacarDinheiro(valorSaque) {
+    let contador100 = 0
+    let contador50 = 0
+    let contador10 = 0
+    let contador5 = 0
+    let contador1 = 0
+    let valorNota = calcularValorNota(valorSaque)
+    while (valorSaque >= valorNota) {
+        switch (valorNota) {
+            case 100:
+                valorSaque -= 100
+                contador100++
+                break
+            case 50:
+                valorSaque -= 50
+                contador50++
+                break
+            case 10:
+                valorSaque -= 10
+                contador10++
+                break
+            case 5:
+                valorSaque -= 5
+                contador5++
+                break
+            case 1:
+                contador1++
+                valorSaque -= 1
+                break
+        }
+
+        valorNota = calcularValorNota(valorSaque)
+
+    }
+    return elaborarResultado(contador100, contador50, contador10, contador5, contador1)
+}
+
+function calcularValorNota(valorSaque) {
+    if (valorSaque >= 100) {
+        return 100
+    } else if (valorSaque >= 50) {
+        return 50
+    } else if (valorSaque >= 10) {
+        return 10
+    } else if (valorSaque >= 5) {
+        return 5
+    } else if (valorSaque >= 1) {
+        return 1
+    }
+}
+
+function elaborarResultado(contador100, contador50, contador10, contador5, contador1) {
+    let resultado = ''
+
+    if (contador100 > 0) {
+        resultado += `${contador100} nota(s) de R$ 100. `
+    }
+
+    if (contador50 > 0) {
+        resultado += `${contador50} nota(s) de R$ 50. `
+    }
+
+    if (contador10 > 0) {
+        resultado += `${contador10} nota(s) de R$ 10. `
+    }
+
+    if (contador5 > 0) {
+        resultado += `${contador5} nota(s) de R$ 5. `
+    }
+
+    if (contador1 > 0) {
+        resultado += `${contador1} nota(s) de R$ 1. `
+    }
+
+    return resultado
+}
+
+console.log(sacarDinheiro(168));
