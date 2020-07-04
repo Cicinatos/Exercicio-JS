@@ -498,3 +498,55 @@ function elaborarResultado(contador100, contador50, contador10, contador5, conta
 }
 
 console.log(sacarDinheiro(168));
+
+//21) Criar um programa para identificar o valor a ser pago por um plano de saúde dada a idade do conveniado  considerando que todos pagam R$ 100,00 mais um adicional conforme a seguinte tabela: 1) crianças com menos de 10 anos pagam R$ 80,00. 2) conveniados com idade entre 10 e 30 anos pagam R$ 50,00. 3) conveniados com idade acima de 30 até 60 anos pagam R$ 95,00. 4) conveniados acima de 60 anos pagam R$ 130,00
+
+function plano(idade) {
+    let valorInicial = 100.00
+    if (idade > 0 && idade < 10) {
+        let valorAte9 = valorInicial + 80.00
+        return `Com a idade de ${idade} anos, o valor do Plano de Saúde fica por R$ ${valorAte9.toFixed(2).replace(".", ",")}.`
+    } else if (idade > 9 && idade < 31) {
+        let valorAte30 = valorInicial + 50.00
+        return `Com a idade de ${idade} anos, o valor do Plano de Saúde fica por R$ ${valorAte30.toFixed(2).replace(".", ",")}.`
+    } else if (idade > 30 && idade < 61) {
+        let valorAte60 = valorInicial + 95.00
+        return `Com a idade de ${idade} anos, o valor do Plano de Saúde fica por R$ ${valorAte60.toFixed(2).replace(".", ",")}.`
+    } else if (idade > 60) {
+        let valorMais60 = valorInicial + 130.00
+        return `Com a idade de ${idade} anos, o valor do Plano de Saúde fica por R$ ${valorMais60.toFixed(2).replace(".", ",")}.`
+    } else {
+        return 'Idade Inválida!'
+    }
+}
+
+console.log(plano(9))
+
+//22) Criar uma função para calcular o valor a ser pago de anuidade de uma associação. A função recebe como parâmetro um inteiro que representa o mês (1 - Janeiro, 2 - Fevereiro...) que foi pago e o valor da anuidade. A anuidade deve ser paga no mês de Janeiro. Por mês, é cobrado 5% de juros (sob o regime de juros compostos). O retorno deve ser o valor a ser pago para o respectivo mês escolhido.
+
+function anuidade(n1) {
+    let valorAnuidade = 100.00
+    let taxa = (5 / 100)
+    let atraso = n1 - 1
+    let valorJuros = valorAnuidade * (1 + taxa) ** atraso
+    if (n1 > 0 && n1 < 13) {
+        return `O valor é R$ ${valorJuros.toFixed(2).replace(".", ",")}.`
+    }
+}
+
+console.log(anuidade(3))
+
+//23) Escreva um algoritimo que leia o código de um aluno e suas três notas. Calcule a média ponderada do aluno, considerando que o peso para a maior nota seja 4 e para as duas restantes, 3. Mostre o código do aluno, suas três notas, a média calculada e uma mensagem "APROVADO" se a média for maior ou igual a 5 e "REPROVADO" se a média for menor que 5. repita a operação até o código lido seja negativo.
+
+function notaFinal (codAluno, nota1, nota2, nota3) {
+    let notas = []
+    notas.push(nota1)
+    notas.push(nota2)
+    notas.push(nota3)
+    notas.sort((a,b) => a < b ? 1 : -1)
+
+    let mediaFinal = (notas[0] * 4 + notas[1] * 3 + notas[2] * 3)/10
+    console.log(`Código do Aluno: ${codAluno}. Notas: ${nota1}, ${nota2}, ${nota3}. ${mediaFinal < 5 ? 'Reprovado.' : 'Aprovado.'}`)
+}
+
+notaFinal(123, 2.8, 6, 3.5)
