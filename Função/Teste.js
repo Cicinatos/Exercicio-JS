@@ -550,3 +550,40 @@ function notaFinal (codAluno, nota1, nota2, nota3) {
 }
 
 notaFinal(123, 2.8, 6, 3.5)
+
+//24) Crie um programa que imprima 11 vezes a frase "Hello World!" utilizando uma estrutura de repetição while.
+
+function helloWorld () {
+    let i = 0
+    while (i < 11) {
+        console.log("Hello World!")
+        i++
+    }
+}
+
+helloWorld()
+
+//25) Escrever um programa ara exibir os números de 1 a 50 na tela.
+
+function contador () {
+    for (let i = 1; i <= 50; i++) {
+        console.log(i)
+    }
+}
+
+contador()
+
+//26) Fazer um programa para encontrar todos os pares entre 1 e 100
+
+function acharPares () {
+    for (let i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            console.log(i)
+        }
+    }
+}
+
+acharPares()
+
+//27) Construa uma função que receba como parâmetros as alturas e as taxas de crescimento anuais de duas crianças e calcule se existe uma criança menor, caso exista, se a criança menor ultrapassará a maior e em quantos anos isso acontecerá. Utilize centímetro para as unidades de medida.
+
