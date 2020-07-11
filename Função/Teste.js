@@ -643,3 +643,29 @@ function inteiros(numeros) {
 
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 console.log(inteiros(numeros))
+
+//29)  Utilizando a estrutura de repetição for, faça uma função que percorra um vetor e conte quantos números deste vetor estão no intervalo [10, 20] (repare que o intervalo é fechado, ou seja, inclui o 10 e o 20) e quantos deles estão fora do intervalo, escrevendo estas informações.
+
+function intervalo(numeros) {
+    let qtdNumerosIntervalo = 0
+    let qtdNumerosForaIntervalo = 0
+    numeros = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    for (let i = 0; i < numeros.length; i++) {
+        if (numeros[i] >= 10 && numeros[i] <= 20) {
+            qtdNumerosIntervalo++
+        } else {
+            numeros[i] < 10 && numeros[i] > 20
+            qtdNumerosForaIntervalo++
+        }
+    }
+
+    console.log(`${qtdNumerosIntervalo} números dentro do intervalo e ${qtdNumerosForaIntervalo} números fora do intervalo.`)
+}
+
+intervalo(numeros)
+
+//30) escreva um algoritimo que percorre um vetor de inteiros e defina o maior e o menor valor dentro do vetor
+
+function algoritimo(numeros) {
+        numeros = [10, 20, 30, 40, 50]
+}
