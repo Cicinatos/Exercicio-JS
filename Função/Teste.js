@@ -668,4 +668,55 @@ intervalo(numeros)
 
 function algoritimo(numeros) {
         numeros = [10, 20, 30, 40, 50]
+        let maior
+        let menor
+        for (i = 0; i < numeros.length; i++) {
+            if (maior === undefined && menor === undefined) {
+                maior = numeros[i]
+                menor = numeros[i]
+            } else {
+                if (numeros[i] > maior) {
+                    maior = numeros[i]
+                }
+                if (numeros[i] < menor) {
+                    menor = numeros[i]
+                }
+            }
+        }
+
+        console.log(`O maior número é ${maior} e o menor número é ${menor}.`)
 }
+
+algoritimo(numeros)
+
+//31) Escrever um algaritimo que percorre um vetor de inteiros, conta quantos números negativos há nesse vetor e imprime a quantidade no console.
+
+function inteiros(numeros) {
+    numeros = [-1, -2, 3, 5, -3, 6, 8, -9, 10]
+    let negativos = 0
+    for (i = 0; i < numeros.length; i++) {
+        if ( numeros[i] < 0) {
+            negativos++
+        }
+    }
+
+    console.log(`Existem ${negativos} números negativos!`)
+}
+
+inteiros(numeros)
+
+//32) Construir um algoritimo que calcule média aritimética dos valores de um vetor de inteiros.
+
+function calcularMedia(vetor) {
+
+let soma = 0
+for (i = 0; i < vetor.length; i++) {
+    soma = soma + vetor[i]
+}
+let media = soma / vetor.length
+console.log(`A sua média é ${media}.`)
+}
+vetor = [1, 2, 3, 4, 5]
+calcularMedia(vetor)
+
+//33) Crie três vetores, chamados vetorInteiro, vetorString e vetorDouble. Cada um destes vetores deverá conter quatro valores, sendo o primeiro com valores inteiros, o segundo com strings e o terceiro com valores decimais. Declarados os vetores, utilize a função de união concat() de duas maneiras diferentes para unir os vetores, e mostre o resultado no console. Todos os elementos do vetor resultado deverão aparecer no console.
