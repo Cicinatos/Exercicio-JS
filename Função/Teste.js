@@ -720,3 +720,41 @@ vetor = [1, 2, 3, 4, 5]
 calcularMedia(vetor)
 
 //33) Crie três vetores, chamados vetorInteiro, vetorString e vetorDouble. Cada um destes vetores deverá conter quatro valores, sendo o primeiro com valores inteiros, o segundo com strings e o terceiro com valores decimais. Declarados os vetores, utilize a função de união concat() de duas maneiras diferentes para unir os vetores, e mostre o resultado no console. Todos os elementos do vetor resultado deverão aparecer no console.
+
+let vetorInteiro = [1, 2, 3, 4]
+let vetorString = ['Cicinatos', 'Patricia', 'Dinarte', 'Tarciana']
+let vetorDouble = [1.1, 2.2, 3.3, 4.4]
+
+function concatenar() {
+    resultado = []
+    for (i = 0; i < arguments.length; i++) {
+        resultado = resultado.concat(arguments[i])
+    }
+    return resultado
+}
+console.log(concatenar(vetorInteiro, vetorDouble))
+console.log(concatenar(vetorDouble, vetorString))
+
+//34) Construa uma função que receba duas Strings de tamanhos variados e que retornará True ou Falsecaso todos os caracteres (independentemente de ser maiúsculo ou minusculo) estejam contidos em ambas palavras.
+
+function verificarString(string1, string2) {
+    let estaContido = true
+    for (i = 0; i < string1.length; i++) {
+        let caractereString1 = string1.charAt(i).toLowerCase()
+        for (j = 0; j < string2.length; j++) {
+            let caractereString2 = string2.charAt(j).toLowerCase()
+            if (caractereString1 == caractereString2) {
+                estaContido = true
+                break
+            } else {
+                estaContido = false
+            }
+        }
+        if (!estaContido) {
+            return estaContido
+        }
+    }
+    return estaContido
+}
+
+console.log(verificarString('abc', 'cba'))
